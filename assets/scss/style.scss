@@ -1,0 +1,160 @@
+$colorText: #fff;
+$colorPrimary: #f7f7f7;
+$colorSecondary: #202124;
+$colorActive: #4a4a4a;
+$myFont: 'Roboto', sans-serif;
+
+
+@mixin canavas() {
+    background-image: url(../img/titel-bild.jpg);
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin pStyle($col,$fSi,$liH,$m,$fW,$w){
+    color: $col;
+    font-size: $fSi;
+    line-height: $liH;
+    margin: $m;
+    font-family: $myFont;
+    font-weight: $fW;
+    width: $w;
+    text-align: center;  
+}
+@mixin flexSection ($fd,$bgC, $m,){
+    display: flex;
+    flex-direction: $fd;
+    justify-content: center;
+    align-items: center;
+    background-color: $bgC;
+    margin: $m;
+}
+@mixin imgSize($m)
+{
+    width: 45%;
+    padding: 5px;
+    margin: $m;
+}
+
+@mixin fixedStyle()
+{
+    overflow: hidden;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+}
+@mixin aStyle
+{
+    text-decoration: none;
+    color: $colorSecondary;
+    float: right;
+    padding-right: 60px;
+    padding-top: 20px; 
+
+}
+a
+{
+    @include aStyle
+}
+
+nav
+{
+    @include fixedStyle();
+}
+
+.canavas-container
+{
+    @include canavas();
+}
+
+.canavas-container p
+{
+    @include pStyle($colorText, 28px, 0 ,0, normal, auto);
+}
+.canavas-container p span
+{   
+    @include pStyle($colorText, 31px, 0 ,0, bolder, auto)
+}
+
+.great-ideas
+{
+    @include flexSection (column,$colorPrimary, 0 305px, );
+}
+.great-ideas h1
+{   
+    @include pStyle($colorSecondary, 28px, 0 , 20% 0 30px 0 , bold, 570px)
+}
+.great-ideas p
+{   
+    @include pStyle($colorActive, 13px, 25px , 0 0, none, 520px)
+}
+.img-container
+{
+    @include flexSection (row, none, 0, )
+}
+
+
+.img-container img {
+    @include imgSize(14% 0 0 0 )
+}
+.img-container2 img {
+    @include imgSize(0)
+}
+.gallery
+{
+    @include flexSection (column,$colorPrimary, 80px 305px,);
+}
+.img-container2
+{
+    @include flexSection (row, none, 0, )
+}
+.gallery div h1
+{
+    @include pStyle($colorSecondary, 28px, 0 , 10% 0 20px , bold, 570px)
+}
+.gallery div p
+{   
+    @include pStyle($colorActive, 13px, 25px , 0 0 30px, none, 520px)
+}
+
+footer
+{
+    @include flexSection (column,$colorText, 0 , );
+}
+
+@mixin flexBox
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding : 20px ;
+    margin: 30px 0 30px 9%;
+}
+.footer-logo
+{
+    @include flexBox;
+
+}
+
+
+footer p:nth-child(1)
+{
+    @include pStyle($colorSecondary, 23px, 30px , 0 , none, 100%)
+}
+footer p:nth-child(2), h6 ,h2
+{
+    @include pStyle($colorSecondary, 10px, 20px ,  0 , none, 50%)
+}
+.logo {
+    width: 130px;
+    margin-bottom: 30px;
+    margin-right: 60px;
+}
+
